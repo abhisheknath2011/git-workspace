@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class Subsequence {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
