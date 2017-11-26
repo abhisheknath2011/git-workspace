@@ -1,0 +1,16 @@
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ * The program prints the given matrix in spiral order
+ *
+ */
+
+public class MatrixInSpiralOrder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,61 @@
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ * The program prints the given matrix in spiral order
+ *
+ */
+
+public class MatrixInSpiralOrder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void printInSpiralOrder() {
+		// TODO Auto-generated method stub
+		int matrix [][] = {{1, 2, 3, 4, 5},
+						   {16,17,18,19, 6},
+						   {15,24,25,20, 7},
+						   {14,23,22,21, 8},
+						   {13,12,11,10,9}};
+		int rowSize = 5;
+		int colSize = 5;
+		int rowIndex = 0;
+		int colIndex = -1;
+		int count = 0;
+		int right = colSize-1;
+		int down = rowSize-1;
+		int left = -1;
+		int up = 0;
+		while(count < rowSize*colSize) {
+			left+=1;
+			for(int i=left;i<=right;i++) {
+				System.out.println(matrix[left][i]);
+				++count;
+			}
+			up+=1;
+			//right-=2;
+			for(int i=up;i<=down;i++) {
+				System.out.println(matrix[i][right]);
+				++count;
+			}
+			right-=1;
+			//down-=2;
+			for(int i=right;i>=left;i--) {
+				System.out.println(matrix[down][i]);
+				++count;
+			}
+			down-=1;
+			//left-=2;
+			for(int i=down;i>=up;i--) {
+				System.out.println(matrix[i][left]);
+				++count;
+			}
+			//up-=2;
+		}
+
+	}
+
+}
