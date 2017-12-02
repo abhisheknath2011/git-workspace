@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Arrays;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class TwoSumClosest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {4, 6, -3, -1, 0, 5, 1};
+		int sum = 7;
+		int result = closestSum(a, sum);
+		System.out.println("Closest sum : "+result);
+	}
+	
+	public static int closestSum(int [] a, int sum) {
+		Arrays.sort(a);
+		int i = 0;
+		int j = a.length - 1;
+		int max = Integer.MAX_VALUE;
+		int closest = -1;
+		while(i < j) {
+			int res = a[i] + a[j];
+			int diff = sum - res;
+			if(diff > 0) {
+				i++;
+			}else {
+				j--;
+			}
+			if(diff < Math.abs(max)) {
+				max = diff;
+				closest = res;
+			}
+		}
+		return closest;
+	}
+
+}

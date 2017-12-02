@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Arrays;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class ThreeSumClosest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	private static int closestSum(int [] a, int sum) {
+		// sort the array
+		Arrays.sort(a);
+		// left pointer
+		int i = 0;
+		// right pointer
+		int j = a.length - 1;
+		int max = Integer.MAX_VALUE;
+		int closest = -1;
+		while(i < j) {
+			int res = a[i] + a[j];
+			int diff = sum - res;
+			// diif > 0 increase left pointer
+			if(diff > 0) {
+				i++;
+			}
+			// diff < increase right pointer
+			else if(diff < 0){
+				j--;
+			}else {
+				// diff 0 sum is same is given sum
+				return res;
+			}
+			// find the closet sum
+			if(Math.abs(diff) < Math.abs(max)) {
+				max = diff;
+				closest = res;
+			}
+		}
+		return closest;
+	}
+
+}
