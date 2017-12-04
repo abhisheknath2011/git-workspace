@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author Abhishek Nath
+ * Find the longest substring without repetition 
+ * in a given string
+ */
+public class LongestSubstringWithoutRep {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+	}
+	
+	private static int findLongestSubstrWithoutRep(String str) {
+		Set<Character> set = new HashSet<Character>();
+		int start = 0;
+		int cur = 0;
+		while(start < cur && cur < str.length()) {
+			
+		}
+	}
+
+}
