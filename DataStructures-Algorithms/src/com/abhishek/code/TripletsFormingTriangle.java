@@ -6,7 +6,7 @@ package com.abhishek.code;
 import java.util.Arrays;
 
 /**
- * @author Abhishek
+ * @author Abhishek Nath
  * Print all combination of triplets that can for a triangle
  */
 public class TripletsFormingTriangle {
