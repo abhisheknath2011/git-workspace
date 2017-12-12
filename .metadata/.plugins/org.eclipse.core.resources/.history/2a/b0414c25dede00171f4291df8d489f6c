@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class MinCostToConvertAString {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String source = "abc";
+		String target = "xyd";
+		int minCost = findMinCost(source, target, source.length() - 1, target.length() - 1);
+		System.out.println("Min Cost : "+minCost);
+
+	}
+	
+	public static int findMinCost(String source, String target, int i, int j) {
+		if(i == 0) {
+			return j - i;
+		}
+		if(j == 0) {
+			return i - j;
+		}
+		if(source.charAt(i) == target.charAt(j)) {
+			return findMinCost(source, target, i-1, j-1) + 0;
+		}
+		return findMin(findMinCost(source, target, i, j-1), 
+				findMinCost(source, target, i-1, j)) + 1;
+	}
+	
+	private static int findMin(int x, int y) {
+		return x < y ? x : y;
+	}
+
+}
