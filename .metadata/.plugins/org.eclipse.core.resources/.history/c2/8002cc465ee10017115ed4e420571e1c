@@ -1,0 +1,93 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Stack;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MinStack {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MinStack minStack = new MinStack();
+		minStack.push(5);
+		minStack.push(3);
+		minStack.push(1);
+		minStack.push(2);
+		minStack.push(4);
+		while(!minStack.isEmpty()) {
+			System.out.println("Min Elem : "+minStack.getMin());
+			System.out.println("Element poped : "+minStack.pop());
+		}
+	}
+	
+	private Stack<Integer> stack;
+	private Stack<Integer> minStack;
+	
+	public MinStack() {
+		stack = new Stack<Integer>();
+		minStack = new Stack<Integer>();
+	}
+	
+	public void push(int item) {
+		stack.push(item);
+		if(minStack.isEmpty()) {
+			minStack.push(item);
+		}else {
+			int count = 0;
+			while(!minStack.isEmpty() && item > minStack.peek()) {
+				stack.push(minStack.pop());
+				count++;
+				minStack.push(item);
+			}
+			minStack.push(item);
+			while(!stack.isEmpty() && i < count) {
+				minStack.push(stack.pop());
+			}
+			
+			/*else {
+				int count = 0;
+				while(!minStack.isEmpty() && item > minStack.peek()) {
+					stack.push(minStack.pop());
+					count++;
+				}
+				minStack.push(item);
+				int i = 0;
+				while(!stack.isEmpty() && i < count) {
+					minStack.push(stack.pop());
+				}
+			}*/
+		}
+	}
+	
+	public int pop() {
+		int item = stack.pop();
+		if(!minStack.isEmpty()) {
+			if(item==minStack.peek()) {
+				minStack.pop();
+			}
+		}
+		if(minStack.isEmpty()) {
+			while(!stack.isEmpty()) {
+				
+			}
+		}
+		return item;
+	}
+	
+	public int getMin() {
+		return !minStack.isEmpty() ? minStack.pop() : -1;
+	}
+	
+	public boolean isEmpty() {
+		return minStack.isEmpty();
+	}
+
+}

@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Stack;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MinStack {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	private Stack<Integer> stack;
+	private Stack<Integer> minStack;
+	
+	public void push(int item) {
+		stack.push(item);
+		if(minStack.isEmpty()) {
+			minStack.push(item);
+		}else {
+			if(item < minStack.peek()) {
+				minStack.push(item);
+			}
+		}
+	}
+	
+	public int pop() {
+		int item = stack.pop();
+		if(item==minStack.peek()) {
+			minStack.pop();
+		}
+		return item;
+	}
+	
+	public int getMin() {
+		return !minStack.isEmpty() ? minStack.pop() : -1;
+	}
+
+}

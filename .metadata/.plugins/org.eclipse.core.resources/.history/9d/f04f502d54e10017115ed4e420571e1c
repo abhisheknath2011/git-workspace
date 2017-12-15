@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Stack;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MinStack {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	private Stack<Integer> stack;
+	private Stack<Integer> minStack;
+	
+	public void push(int elem) {
+		stack.push(elem);
+	}
+	
+	public void 
+
+}
