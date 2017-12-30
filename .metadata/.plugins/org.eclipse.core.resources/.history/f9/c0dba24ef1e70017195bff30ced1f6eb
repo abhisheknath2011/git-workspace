@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class WordSearch {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String input [] = {"oath","pea","eat","rain"};
+		char board [][] = {{'o','a','a','n'},
+						   {'e','t','a','e'},
+						   {'i','h','k','r'},
+						   {'i','f','l','v'}
+				          };
+	}
+	
+	public void findWord(String input, char board [][]) {
+		
+	}
+	
+	public boolean findWord(String word, char board [][], int index, int row, int col) {
+		if(row >= board.length || col >= board[0].length || index > word.length() - 1) 
+			return false;
+		if(word.charAt(index) == board[row][col]) {
+			if(index== word.length()-1) {
+				return true;
+			}else if(findWord(word, board, index + 1, row, col + 1) || 
+					 findWord(word, board, index + 1, row + 1, col) || 
+					 findWord(word, board, index + 1, row + 1, col + 1)) {
+				
+			}
+		}
+	}
+
+}

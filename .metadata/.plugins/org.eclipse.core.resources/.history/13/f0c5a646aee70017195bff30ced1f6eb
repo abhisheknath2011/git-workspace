@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class SortedRotatedArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {6,7,8,9,1,2,3,4,5};
+		SortedRotatedArray sortedRotated = new SortedRotatedArray();
+		int x = sortedRotated.findElement(a, 8);
+		System.out.println("x : "+x);
+	}
+	
+	public int findElement(int a [], int x) {
+		return findElement(a, 0, a.length - 1, x);
+	}
+	
+    public int findElement(int a [], int low, int high, int x) {
+		if(low >= high)
+			return -1;
+		int mid = (high - low)/2;
+		if(x == a[mid])
+			return mid;
+		if(a[low] <= a[mid]) {
+			if(x >= a[low] && x > a[mid]) {
+				return findElement(a, mid + 1, high, x);
+			}else {
+				return findElement(a, low, mid - 1, x);
+			}
+		}else {
+			if(a[mid] <= a[high] && a[mid] > x) {
+				return findElement(a, low, mid - 1 , x);
+			}else {
+				return findElement(a, mid + 1, high, x);
+			}
+		}
+	}
+
+}

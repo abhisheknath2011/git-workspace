@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MaxSizeSubarraySum {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {1, -1, 5, -2, 3};
+		int k = 3;
+	}
+
+}

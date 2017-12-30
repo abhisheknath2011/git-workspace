@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class SortedRotatedArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {6,7,7,9,1,2,3,4,5};
+	}
+	
+	public int findElement(int a []) {
+		
+	}
+
+}

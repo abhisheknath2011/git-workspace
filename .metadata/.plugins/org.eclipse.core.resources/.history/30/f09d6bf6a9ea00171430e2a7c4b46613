@@ -1,0 +1,67 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class Permutations {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int [] num = {1, 2, 3};
+		Permutations permutations = new Permutations();
+		permutations.findPermutations(num);
+		
+	}
+	
+	public void findPermutations(int [] num) {
+		List<List<Integer>> list = new ArrayList<List<Integer>>();
+		this.permute(num, 0, list);
+		Iterator<List<Integer>> iter = list.iterator();
+		while(iter.hasNext()) {
+			List<Integer> nextList = iter.next();
+			System.out.println(nextList);
+		}
+	}
+	
+	public void permute(int [] num, int start, List<List<Integer>> list) {
+		/*if(start == num.length) {
+			return;
+		}*/
+		if(start >= num.length) {
+			this.addToList(num, start, list);
+			//return;
+		}
+		for(int i = start; i<num.length; i++) {
+			swap(num, start, i);
+			permute(num, start + 1, list);
+			swap(num, i, start);
+		}
+	}
+	
+	public void addToList(int [] num, int start, List<List<Integer>> list) {
+		List<Integer> permList = new ArrayList<Integer>();
+		for(int i=0; i<num.length;i++) {
+			permList.add(num[i]);
+		}
+		list.add(permList);
+	}
+	
+	public void swap(int a [], int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+	
+	
+
+}

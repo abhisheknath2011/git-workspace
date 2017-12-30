@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class Permutations {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int [] num = {1, 2, 3, 4};
+		
+	}
+	
+	public void findPermutations(int [] num) {
+		List<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+		
+	}
+	
+	public void permute(int [] num, int start, List<ArrayList<Integer>> list) {
+		for(int i = start; i<num.length; i++) {
+			swap(num, start, i);
+			permute(num, start + 1, list);
+			swap(num, i, start);
+		}
+	}
+	
+	public void swap(int a [], int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+	
+	
+
+}

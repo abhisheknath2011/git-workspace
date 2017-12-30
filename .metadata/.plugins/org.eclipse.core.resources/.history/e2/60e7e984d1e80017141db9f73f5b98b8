@@ -1,0 +1,61 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class LongestCommonSubstring {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String a = "abcd";
+		String b = "bcdef";
+		findLongestCommSubstring(a, b);
+
+	}
+	
+	public static void findLongestCommSubstring(String a, String b) {
+		int m = a.length();
+		int n = b.length();
+		int dpTable [][] = new int[m][n];
+		int max = 0;
+		int row = 0;
+		int col = 0;
+		for(int i=0; i<m; i++) {
+			for(int j=0; j<n; j++) {
+				if(a.charAt(i) == b.charAt(j)) {
+					if(i == 0 || j == 0) {
+						dpTable[i][j] = 1;
+					}else {
+						dpTable[i][j] = dpTable[i-1][j-1] + 1;
+					}
+					if(max < dpTable[i][j]) {
+						max = dpTable[i][j];
+						row = i;
+						col = j;
+					}
+				}
+			}
+		}
+		System.out.println("Max Length : "+max);
+		for(int i=0; i<m; i++) {
+			for(int j=0; j<n; j++) {
+				System.out.println(" "+dpTable[i][j]);
+			}
+			System.out.println("");
+		}
+		String commonStr = "";
+		while(dpTable[row][col]!=0) {
+			commonStr = a.charAt(row-1) + commonStr;
+			row--;
+			col--;
+		}
+		System.out.println("Common Str : "+commonStr);
+	}
+
+}

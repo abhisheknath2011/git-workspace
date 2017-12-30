@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class SortedRotatedArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {6,7,8,9,1,2,3,4,5};
+		SortedRotatedArray sortedRotated = new SortedRotatedArray();
+		int x = sortedRotated.findElement(a, 4);
+		System.out.println("x : "+x);
+		int min = sortedRotated.findMin(a);
+		System.out.println("min : "+min);
+	}
+	
+	public int findElement(int a [], int x) {
+		return findElement(a, 0, a.length - 1, x);
+	}
+	
+    public int findElement(int a [], int low, int high, int x) {
+		if(low > high)
+			return -1;
+		int mid = low + (high - low)/2;
+		if(x == a[mid])
+			return mid;
+		if(a[low] <= a[mid]) {
+			if(x >= a[low] && x < a[mid]) {
+				//return findElement(a, mid + 1, high, x);
+				return findElement(a, low, mid - 1, x);
+			}else {
+				//return findElement(a, low, mid - 1, x);
+				return findElement(a, mid + 1, high, x);
+			}
+		}else {
+			if(x <= a[high] && x > a[mid]) {
+				return findElement(a, mid + 1, high , x);
+				//return findElement(a, low, mid -1, x);
+			}else {
+				return findElement(a, low, mid -1, x);
+				//return findElement(a, mid + 1, high , x);
+			}
+		}
+	}
+    
+    public int findMin(int a [] ) {
+    	return findMin(a, 0, a.length - 1);
+    }
+    
+    public int findMin(int a [], int low, int high) {
+		if(low == high)
+			return a[low];
+		if((high - low) == 1)
+			Integer.min(a[low], a[high]);
+		int mid = low + (high - low)/2;
+		if(a[low] < a[high]){
+			return a[low];
+		}else if(a[mid] > a[low]) {
+			return findMin(a, mid, high);
+		}else {
+			return findMin(a, low, mid);
+		}
+    }
+
+}

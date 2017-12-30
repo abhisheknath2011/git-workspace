@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class Permutations {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int [] num = {1, 2, 3, 4};
+		
+	}
+	
+	
+
+}

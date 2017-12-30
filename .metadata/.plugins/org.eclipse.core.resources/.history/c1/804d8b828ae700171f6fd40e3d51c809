@@ -1,0 +1,71 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MaxSizeSubarraySum {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {1, -1, 5, -2, 3};
+		int k = 3;
+		findMaxSize(a, k);
+		
+		int b [] = {2,3,1,2,4,3};
+		int m = 7;
+		
+		findMaxSize(b, m);
+	}
+	
+	public static int findMaxSize(int a [], int k) {
+		 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		 int sum = 0;
+		 int maxLen = Integer.MIN_VALUE;
+		 for(int i=0;i<a.length;i++) {
+			 sum +=a[i];
+			 if(sum == k) {
+				 maxLen = Integer.max(maxLen, i+1);
+			 }
+			 int diff = sum - k;
+			 if(map.containsKey(diff)) {
+				 maxLen = Integer.max(maxLen, i - map.get(diff));
+			 }
+			 if(!map.containsKey(sum)) {
+				 map.put(sum, i);
+			 }
+		 }
+		 System.out.println("Max Len :: "+maxLen);
+		 return maxLen;
+	}
+	
+	public static int findMinSize(int a [], int k) {
+		 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		 int sum = 0;
+		 int minLen = Integer.MAX_VALUE;
+		 for(int i=0;i<a.length;i++) {
+			 sum +=a[i];
+			 if(sum == k) {
+				 minLen = Integer.min(minLen, i+1);
+			 }
+			 int diff = sum - k;
+			 if(map.containsKey(diff)) {
+				 minLen = Integer.min(minLen, i - map.get(diff));
+			 }
+			 if(!map.containsKey(sum)) {
+				 map.put(sum, i);
+			 }
+		 }
+		 System.out.println("Max Len :: "+minLen);
+		 return minLen;
+	}
+
+}

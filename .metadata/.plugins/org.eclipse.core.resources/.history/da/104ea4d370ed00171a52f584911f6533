@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MediaInStream {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String line = scanner.nextLine();
+		int n = Integer.valueOf(line);
+		List<Integer> list = new ArrayList<Integer>();
+		for(int i=0;i<n;i++) {
+			list.add(Integer.valueOf(scanner.nextLine()));
+		}
+	}
+	
+	public void findMedian(List<Integer> list) {
+		
+	}
+
+}

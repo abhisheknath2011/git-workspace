@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class CommonElements {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+	}
+	
+	public void findCommonElements() {
+		int a [] = {3, 5, 6, 6, 9};
+		int b [] = {1, 4, 5, 6, 7, 7, 9};
+		int c [] = {2, 2, 3, 5, 6 , 6, 8};
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		while(i <= a.length -1 && j <= b.length - 1 && k <= c.length - 1) {
+			if(a[i] < a[j] && a[i] <= a[k]) {
+					i++;
+			}else if(a[j] < a[i] && a[j] <= a[k]) {
+					j++;
+			}else if(a[k] < a[i] && a[k] <= a[i]) {
+					k++;
+			}else if(a[i] == a[j] && a[i] == a[k]) {
+				System.out.println(a[i]);
+			}
+			
+		}
+	}
+
+}

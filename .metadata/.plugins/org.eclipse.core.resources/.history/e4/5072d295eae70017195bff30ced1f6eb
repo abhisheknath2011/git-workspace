@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class ShortestPalindrome {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ShortestPalindrome shortestPalindrome = new ShortestPalindrome();
+		shortestPalindrome.transformToPalindrome("abcd");
+	}
+	
+	public void transformToPalindrome(String input) {
+		int start = 0;
+		int end = input.length() - 1;
+		StringBuilder builder = new StringBuilder(input);
+		while(start < end) {
+			if(builder.charAt(start) == builder.charAt(end)) {
+				start++;
+				end--;
+			}else {
+				builder.insert(start, builder.charAt(end));
+				start++;
+			}
+			System.out.println("builder : "+builder.toString());
+		}
+		System.out.println("Palindrome : "+builder.toString());
+	}
+
+}

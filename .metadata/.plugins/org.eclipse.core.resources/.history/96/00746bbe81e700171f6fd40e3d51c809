@@ -1,0 +1,51 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class MinSubarraySize {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int a [] = {2,3,1,2,4,4};
+		int n = 7;
+		findMinSubarray(a, n);
+	}
+	
+	public static int findMinSubarray(int a [], int n) {
+		int i = 0;
+		int sum = 0;
+		int j = 0;
+		int min = Integer.MAX_VALUE;
+		while(i < a.length) {
+			if(sum < n) {
+				sum += a[i];
+				i++;
+			}else {
+				if(min > i - j) {
+					min = i - j;
+				}
+				if(j==i-1)
+	                return 1;
+				sum -= a[j];
+				j++;
+			}
+		}
+		while(sum > n) {
+			sum -= a[j];
+			if(sum == n && min > i - j) {
+				min = i - j;
+			}
+			j++;
+		}
+		System.out.println("Min : "+min);
+		return min;
+	}
+
+}

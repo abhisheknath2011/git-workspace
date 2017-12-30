@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class LongestSubstringKDistinctChars {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public void findLomgestSubstringKDistinct(String input) {
+		Map<Character, Integer> charMap = new HashMap<Character, Integer>();
+	}
+
+}

@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class Permutations {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int [] num = {1, 2, 3, 4};
+		
+	}
+	
+	public void findPermutations(int [] num) {
+		List<List<Integer>> list = new ArrayList<ArrayList<Integer>>();
+	}
+	
+	
+
+}
