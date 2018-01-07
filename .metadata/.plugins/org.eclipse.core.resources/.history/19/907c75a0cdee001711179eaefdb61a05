@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class StringRotation {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+	}
+	
+	public boolean isRotation(String s1, String s2) {
+		char [] chars = new char[26];
+	}
+
+}

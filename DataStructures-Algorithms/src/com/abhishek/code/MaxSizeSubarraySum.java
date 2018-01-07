@@ -24,6 +24,10 @@ public class MaxSizeSubarraySum {
 		int m = 7;
 		
 		findMinSize(b, m);
+		
+		int c [] = {-2,1,-3,4,-1,2,1,-5,4};
+		
+		findMinSize(c, m);
 	}
 	
 	public static int findMaxSize(int a [], int k) {

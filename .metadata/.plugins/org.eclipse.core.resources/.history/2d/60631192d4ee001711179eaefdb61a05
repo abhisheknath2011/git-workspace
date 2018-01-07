@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class StringRotation {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		StringRotation sr = new StringRotation();
+		boolean result = sr.isRotation("abc", "cba");
+		System.out.println("Result :"+result);
+	}
+	
+	public boolean isRotation(String s1, String s2) {
+		char [] chars = new char[26];
+		for(int i=0;i<s1.length();i++) {
+			char ch = s1.charAt(i);
+			chars[ch - 'a']++;
+		}
+		String strKey1 = new String(chars);
+		chars = new char[26];
+		for(int i=0;i<s2.length();i++) {
+			char ch = s2.charAt(i);
+			chars[ch - 'a']++;
+		}
+		String strKey2 = new String(chars);
+		if(strKey1.equals(strKey2)) {
+			return true;
+		}
+		return false;
+	}
+
+}

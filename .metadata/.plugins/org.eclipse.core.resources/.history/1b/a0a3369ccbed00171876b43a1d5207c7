@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class LongestCommonSubsequence {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public String findLongestSubsequence(String s1, String s2) {
+		String result = "";
+		int dpTable [][] = new int[s1.length()+1][s2.length()+1];
+		for(int i=0;i<s1.length();i++) {
+			dpTable[i][0] = 0;
+		}
+		for(int i=0;i<s2.length();i++) {
+			dpTable[0][i] = 0;
+		}
+		return result;
+	}
+ 
+}

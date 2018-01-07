@@ -1,0 +1,103 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class LongestCommonSubsequence {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		LongestCommonSubsequence lcs = new LongestCommonSubsequence();
+		lcs.findLongestSubsequence("abcd", "abdc");
+
+	}
+	
+	public String findLongestSubsequence(String s1, String s2) {
+		String result = "";
+		int dpTable [][] = new int[s1.length()+1][s2.length()+1];
+		for(int i=0;i<s1.length();i++) {
+			dpTable[i][0] = 0;
+		}
+		for(int i=0;i<s2.length();i++) {
+			dpTable[0][i] = 0;
+		}
+		for(int i=1;i<=s1.length();i++) {
+			for(int j=1;j<=s2.length();j++) {
+				if(s1.charAt(i-1) == s2.charAt(j-1)) {
+					if(i == 1 || j == 1) {
+						dpTable[i][j] = 1;
+					}else {
+						dpTable[i][j] += dpTable[i-1][j-1];
+					}
+				}else {
+					dpTable[i][j] += max(dpTable[i-1][j], dpTable[i][j-1]);
+				}
+			}
+		}
+		for(int i=0;i<=s1.length();i++) {
+			System.out.println("");
+			for(int j=0;j<=s2.length();j++) {
+				System.out.print(" "+dpTable[i][j]);
+			}
+		}
+		int len = dpTable[s1.length()][s2.length()];
+		System.out.println("Max Length : "+len);
+		int row = s1.length();
+		int col = s2.length();
+		this.getCommonSubsequence(dpTable, row, col, s1, s2);
+		return result;
+	}
+	
+	private void getCommonSubsequence(int dpTable [][], int row, int col, 
+			String s1, String s2) {
+		Set<String> set = new LinkedHashSet<String>();
+		while(dpTable[row][col]!=0) {
+			if(s1.charAt(row) == s2.charAt(col)) {
+				Iterator<String> iterator = set.iterator();
+				while(iterator.hasNext()) {
+					String str = iterator.next();
+					String newStr = s1.charAt(row) + str;
+					set.remove(str);
+					set.add(newStr);
+				}
+				//return getCommonSubsequence(dpTable, row-1, col-1, s1, s2, results)+s1.charAt(row);
+			}else {
+				if(s1.charAt(row-1) == s2.charAt(col)) {
+					Iterator<String> iterator = set.iterator();
+					while(iterator.hasNext()) {
+						String str = iterator.next();
+						String newStr = s1.charAt(row-1) + str;
+						set.remove(str);
+						set.add(newStr);
+					}
+				}else if(s1.charAt(row) == s2.charAt(col-1)) {
+					Iterator<String> iterator = set.iterator();
+					while(iterator.hasNext()) {
+						String str = iterator.next();
+						String newStr = s1.charAt(row) + str;
+						set.remove(str);
+						set.add(newStr);
+					}
+				}
+			}
+			row--;
+			col--;
+		}
+		System.out.println("Set : "+set);
+	}
+	
+	public int max(int a, int b) {
+		return a > b ? a : b;
+	}
+ 
+}

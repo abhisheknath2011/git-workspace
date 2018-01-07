@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class CountIslandInMatrix {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+	}
+	
+	private static int cellRowPos [] = {-1, -1, -1, 0, 0, 1, 1, 1};
+	private static int cellColPos [] = {-1, 0, 1, -1, 1, -1, 0, 1};
+	
+	private static boolean isValidCell(int matrix [][], int row, int col) {
+		if((row >=0 && col >=0) || row < matrix.length && col < matrix[0].length) {
+			return true;
+		}
+		return false;
+	}
+
+}

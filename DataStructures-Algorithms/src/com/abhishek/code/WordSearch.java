@@ -20,7 +20,7 @@ public class WordSearch {
 						   {'i','f','l','v'}
 				          };
 		WordSearch wordSearch = new WordSearch();
-		wordSearch.findWord("aakl", board);
+		wordSearch.findWord("oath", board);
 	}
 	
 	public void findWord(String word, char board [][]) {

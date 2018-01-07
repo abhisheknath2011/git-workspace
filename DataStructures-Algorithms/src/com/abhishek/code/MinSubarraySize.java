@@ -13,7 +13,7 @@ public class MinSubarraySize {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int a [] = {2,3,1,2,4,3};
+		int a [] = {2,3,1,2,4,5};
 		int n = 7;
 		findMinSubarray(a, n);
 	}

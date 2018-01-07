@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class LongestPalindromicSubstring {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String input = "dabcda";
+		longestPalindromicSubstringDP(input);
+	}
+	
+	public static String longestPalindromicSubstringDP(String input) {
+		if(input == null || input.length() <= 1) {
+			return input;
+		}
+		int len = input.length();
+		int maxLen = 1;
+		boolean dpTable [][] = new boolean[len][len];
+		String longest = "";
+		for(int l=0;l<=len;l++) {
+			for(int i=0;i<len-l;i++) {
+				int j = i+l;
+				if(input.charAt(i) == input.charAt(j) && (j-i<=2 || dpTable[i+1][j-1])) {
+					dpTable[i][j] = true;
+					if(j-i+1 > maxLen) {
+						maxLen = j-i+1;
+						longest = input.substring(i, j+1);
+					}
+				}
+			}
+		}
+		for(int i=0;i<len;i++) {
+			System.out.println("");
+			for(int j=0;j<len;j++) {
+				System.out.print(" "+dpTable[i][j]);
+			}
+		}
+		System.out.print(" Longest palindromic substring : "+longest);
+		return longest;
+	}
+
+}

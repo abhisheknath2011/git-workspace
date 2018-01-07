@@ -20,6 +20,8 @@ public class LongestPalindromicSubsequence {
 		input = "ABDCECABDA";
 		result = findLongestPalindromicSubsequence(input);
 		System.out.println("Longest palidromic subsequence is :" + result);
+		
+		longestPalindromicSubseqDP(input);
 	}
 
 	private static String findLongestPalindromicSubsequence(String input) {
@@ -46,5 +48,37 @@ public class LongestPalindromicSubsequence {
 			}
 			return subseq2;
 		}
+	}
+	
+	public static int longestPalindromicSubseqDP(String input) {
+		int len = input.length();
+		int dpTable [][] = new int[len][len];
+		for(int i = 0; i<len; i++) {
+			dpTable[i][i] = 1;
+		}
+		for(int l=2;l<=len;l++) {
+			for(int i=0;i<len-l+1;i++) {
+				int j = i+l-1;
+				if(input.charAt(i) == input.charAt(j) && l==2) {
+					dpTable[i][j] = 2;
+				}else if(input.charAt(i) == input.charAt(j)) {
+					dpTable[i][j] = dpTable[i+1][j-1] + 2;
+				}else {
+					dpTable[i][j] = max(dpTable[i+1][j], dpTable[i][j-1]);
+				}
+			}
+		}
+		for(int i=0;i<len;i++) {
+			System.out.println("");
+			for(int j=0;j<len;j++) {
+				System.out.print(" "+dpTable[i][j]);
+			}
+		}
+		System.out.print(" Length of longest palindromic subseq : "+dpTable[0][len-1]);
+		return dpTable[0][len-1];
+	}
+	
+	private static int max(int a, int b) {
+		return a > b ? a : b;
 	}
 }

@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek
+ *
+ */
+public class StringRotation {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		StringRotation sr = new StringRotation();
+		boolean result = sr.isRotation("abc", "eba");
+		System.out.println("Result :"+result);
+	}
+	
+	public boolean isRotation(String s1, String s2) {
+		
+		return false;
+	}
+
+}

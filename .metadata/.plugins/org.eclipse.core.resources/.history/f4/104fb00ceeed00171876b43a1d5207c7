@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+package com.abhishek.code;
+
+/**
+ * @author Abhishek Nath
+ *
+ */
+public class CountIslandInMatrix {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+	}
+	
+	private static boolean isValidCell(int matrix [][], int row, int col) {
+		if((row >=0 && col >=0) || row < matrix.length && col < matrix[0].length) {
+			return true;
+		}
+		return false;
+	}
+	
+	private static DFS(int matrix[][], int row, int col) {
+		
+		int cellRowPos [] = {-1, -1, -1, 0, 0, 1, 1, 1};
+		int cellColPos [] = {-1, 0, 1, -1, 1, -1, 0, 1};
+		for(int i=0;i<8;i++) {
+			
+		}
+	}
+	
+	private static int countIslands(int matrix[][], int row, int col) {
+		int rowSize = matrix.length;
+		int colSize = matrix[0].length;
+		boolean isVisited [][] = new boolean[rowSize][colSize];
+		int count = 0;
+		for(int i=0;i<rowSize;i++) {
+			for(int j=0;j<colSize;j++) {
+				if(matrix[i][j] == 1 && !isVisited[i][j]) {
+					
+				}
+			}
+		}
+	}
+
+}
